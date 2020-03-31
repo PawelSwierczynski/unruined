@@ -2,13 +2,19 @@
 
 public class BuildingPartPhysics : MonoBehaviour
 {
+    private const float MOVE_DOWN_TIME_DELAY = 1.0f;
+
     private bool isLeftControlPressed;
     private bool isRightControlPressed;
+    private bool isMovingDown;
+    private float lastMoveDownUpdateTime;
 
     void Start()
     {
         isLeftControlPressed = false;
         isRightControlPressed = false;
+        isMovingDown = false;
+        lastMoveDownUpdateTime = Time.time;
     }
 
     void Update()
@@ -21,6 +27,12 @@ public class BuildingPartPhysics : MonoBehaviour
         {
             isRightControlPressed = true;
         }
+
+        if (Time.time - lastMoveDownUpdateTime > MOVE_DOWN_TIME_DELAY)
+        {
+            isMovingDown = true;
+            lastMoveDownUpdateTime = Time.time;
+        }
     }
 
     void FixedUpdate()
@@ -30,10 +42,17 @@ public class BuildingPartPhysics : MonoBehaviour
             transform.position += new Vector3(-1, 0, 0);
             isLeftControlPressed = false;
         }
+
         if (isRightControlPressed)
         {
             transform.position += new Vector3(1, 0, 0);
             isRightControlPressed = false;
+        }
+
+        if (isMovingDown)
+        {
+            transform.position += new Vector3(0, -1, 0);
+            isMovingDown = false;
         }
     }
 }
