@@ -3,8 +3,8 @@
 public class BuildingPartPhysics : MonoBehaviour
 {
     private const int LEFT_BORDER_POSITION_X = 0;
-    private const int RIGHT_BORDER_POSITION_X = 10;
-    private const int DOWN_BORDER_POSITION_Y = 0;
+    private const int RIGHT_BORDER_POSITION_X = 11;
+    private const int DOWN_BORDER_POSITION_Y = 20;
 
     private bool isLeftControlPressed;
     private bool isRightControlPressed;
@@ -31,7 +31,7 @@ public class BuildingPartPhysics : MonoBehaviour
             isRightControlPressed = true;
         }
 
-        if (Time.time - lastMoveDownUpdateTime >= moveDownTimeDelay)
+        if (Time.time - lastMoveDownUpdateTime >= (Input.GetKey(KeyCode.DownArrow) ? moveDownTimeDelay/ 10 : moveDownTimeDelay))
         {
             isMovingDown = true;
             lastMoveDownUpdateTime = Time.time;
@@ -84,7 +84,7 @@ public class BuildingPartPhysics : MonoBehaviour
             int coordinateX = Mathf.RoundToInt(children.transform.position.x);
             int coordinateY = Mathf.RoundToInt(children.transform.position.y);
 
-            if (coordinateX < LEFT_BORDER_POSITION_X || coordinateX > RIGHT_BORDER_POSITION_X || coordinateY < DOWN_BORDER_POSITION_Y)
+            if (coordinateX < LEFT_BORDER_POSITION_X || coordinateX >= RIGHT_BORDER_POSITION_X || coordinateY >= DOWN_BORDER_POSITION_Y || coordinateY < 0)
             {
                 return false;
             }
