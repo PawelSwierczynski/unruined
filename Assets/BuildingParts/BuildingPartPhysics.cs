@@ -37,7 +37,7 @@ public class BuildingPartPhysics : MonoBehaviour
             isUpControlPressed = true;
         }
 
-        if (Time.time - lastMoveDownUpdateTime >= (Input.GetKey(KeyCode.DownArrow) ? moveDownTimeDelay/ 10 : moveDownTimeDelay))
+        if (Time.time - lastMoveDownUpdateTime >= (Input.GetKey(KeyCode.DownArrow) ? moveDownTimeDelay / 10 : moveDownTimeDelay))
         {
             isMovingDown = true;
             lastMoveDownUpdateTime = Time.time;
