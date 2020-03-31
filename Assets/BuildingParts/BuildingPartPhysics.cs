@@ -5,7 +5,8 @@ public class BuildingPartPhysics : MonoBehaviour
     private const int LEFT_BORDER_POSITION_X = 0;
     private const int RIGHT_BORDER_POSITION_X = 11;
     private const int DOWN_BORDER_POSITION_Y = 20;
-    
+
+    private static Transform[,] grid = new Transform[RIGHT_BORDER_POSITION_X, DOWN_BORDER_POSITION_Y];
     private bool isLeftControlPressed;
     private bool isRightControlPressed;
     private bool isUpControlPressed;
@@ -88,12 +89,25 @@ public class BuildingPartPhysics : MonoBehaviour
             if (!IsMoveValid())
             {
                 transform.position += new Vector3(0, 1, 0);
+                AddBuildingPartsToGrid();
+                this.enabled = false;
+                FindObjectOfType<SpawnBuildingParts>().SpawnNewBuildingPart();
             }
 
             isMovingDown = false;
         }
     }
 
+    void AddBuildingPartsToGrid()
+    {
+        foreach (Transform children in transform)
+        {
+            int coordinateX = Mathf.RoundToInt(children.transform.position.x);
+            int coordinateY = Mathf.RoundToInt(children.transform.position.y);
+
+            grid[coordinateX, coordinateY] = children;
+        }
+    }
     private bool IsMoveValid()
     {
         foreach (Transform children in transform)
@@ -102,6 +116,11 @@ public class BuildingPartPhysics : MonoBehaviour
             int coordinateY = Mathf.RoundToInt(children.transform.position.y);
 
             if (coordinateX < LEFT_BORDER_POSITION_X || coordinateX >= RIGHT_BORDER_POSITION_X || coordinateY >= DOWN_BORDER_POSITION_Y || coordinateY < 0)
+            {
+                return false;
+            }
+
+            if(grid[coordinateX, coordinateY] != null)
             {
                 return false;
             }

@@ -9,7 +9,7 @@ public class SpawnBuildingParts : MonoBehaviour
         SpawnNewBuildingPart();
     }
 
-    private void SpawnNewBuildingPart()
+    public void SpawnNewBuildingPart()
     {
         Instantiate(buildingParts[Random.Range(0, buildingParts.Length)], transform.position, Quaternion.identity);
     }
