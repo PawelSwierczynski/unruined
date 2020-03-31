@@ -5,12 +5,14 @@ public class BuildingPartPhysics : MonoBehaviour
     private const int LEFT_BORDER_POSITION_X = 0;
     private const int RIGHT_BORDER_POSITION_X = 11;
     private const int DOWN_BORDER_POSITION_Y = 20;
-
+    
     private bool isLeftControlPressed;
     private bool isRightControlPressed;
+    private bool isUpControlPressed;
     private bool isMovingDown;
     private float lastMoveDownUpdateTime;
     public float moveDownTimeDelay = 1.0f;
+    public Vector3 rotationPoint;
 
     void Start()
     {
@@ -29,6 +31,10 @@ public class BuildingPartPhysics : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             isRightControlPressed = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            isUpControlPressed = true;
         }
 
         if (Time.time - lastMoveDownUpdateTime >= (Input.GetKey(KeyCode.DownArrow) ? moveDownTimeDelay/ 10 : moveDownTimeDelay))
@@ -62,6 +68,17 @@ public class BuildingPartPhysics : MonoBehaviour
             }
 
             isRightControlPressed = false;
+        }
+        
+        if (isUpControlPressed)
+        {
+            transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, 1), 90);
+
+            if(!IsMoveValid())
+            {
+                transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, 1), -90);
+            }
+            isUpControlPressed = false;
         }
 
         if (isMovingDown)
