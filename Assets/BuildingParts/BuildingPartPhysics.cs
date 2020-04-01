@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class BuildingPartPhysics : MonoBehaviour
 {
@@ -7,6 +9,8 @@ public class BuildingPartPhysics : MonoBehaviour
     private const int DOWN_BORDER_POSITION_Y = 20;
 
     private static Transform[,] grid = new Transform[RIGHT_BORDER_POSITION_X, DOWN_BORDER_POSITION_Y];
+    private static List<Tuple<int, int>> patternCoordinates = new List<Tuple<int, int>>();
+
     private bool isLeftControlPressed;
     private bool isRightControlPressed;
     private bool isUpControlPressed;
@@ -21,6 +25,7 @@ public class BuildingPartPhysics : MonoBehaviour
         isRightControlPressed = false;
         isMovingDown = false;
         lastMoveDownUpdateTime = Time.time;
+        patternCoordinates.Add(new Tuple<int, int>(3, 3));
     }
 
     void Update()
@@ -79,6 +84,7 @@ public class BuildingPartPhysics : MonoBehaviour
             {
                 transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, 1), -90);
             }
+
             isUpControlPressed = false;
         }
 
@@ -90,7 +96,13 @@ public class BuildingPartPhysics : MonoBehaviour
             {
                 transform.position += new Vector3(0, 1, 0);
                 AddBuildingPartsToGrid();
-                this.enabled = false;
+                if (IsLevelCompleted())
+                {
+                    Debug.Log("You've completed the level!");
+                }
+
+                enabled = false;
+
                 FindObjectOfType<SpawnBuildingParts>().SpawnNewBuildingPart();
             }
 
@@ -98,7 +110,20 @@ public class BuildingPartPhysics : MonoBehaviour
         }
     }
 
-    void AddBuildingPartsToGrid()
+    private bool IsLevelCompleted()
+    {
+        foreach (var patternElementCoordinates in patternCoordinates)
+        {
+            if (grid[patternElementCoordinates.Item1, patternElementCoordinates.Item2] == null)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private void AddBuildingPartsToGrid()
     {
         foreach (Transform children in transform)
         {
@@ -108,6 +133,7 @@ public class BuildingPartPhysics : MonoBehaviour
             grid[coordinateX, coordinateY] = children;
         }
     }
+
     private bool IsMoveValid()
     {
         foreach (Transform children in transform)
@@ -120,7 +146,7 @@ public class BuildingPartPhysics : MonoBehaviour
                 return false;
             }
 
-            if(grid[coordinateX, coordinateY] != null)
+            if (grid[coordinateX, coordinateY] != null)
             {
                 return false;
             }
