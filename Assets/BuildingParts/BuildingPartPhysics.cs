@@ -5,8 +5,8 @@ using UnityEngine;
 public class BuildingPartPhysics : MonoBehaviour
 {
     private const int LEFT_BORDER_POSITION_X = 0;
-    private const int RIGHT_BORDER_POSITION_X = 11;
-    private const int DOWN_BORDER_POSITION_Y = 20;
+    private const int RIGHT_BORDER_POSITION_X = 22;
+    private const int DOWN_BORDER_POSITION_Y = 40;
 
     private static Transform[,] grid = new Transform[RIGHT_BORDER_POSITION_X, DOWN_BORDER_POSITION_Y];
     private static List<Tuple<int, int>> patternCoordinates = new List<Tuple<int, int>>();
