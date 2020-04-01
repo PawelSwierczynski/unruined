@@ -1,28 +1,16 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
-public class StartButton : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
+public class StartButton : MonoBehaviour, IPointerClickHandler
 {
-    public Sprite newSprite;
-    public Sprite oldSprite;
 
-    void Start()
+    public void OnMouseOver()
     {
-
+        
     }
-
-    public void OnMouseEnter()
+    public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("Mouse entered");
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        Debug.Log("Mouse Enter");
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        Debug.Log("Mouse Exit");
+        SceneManager.LoadScene("SampleScene");
     }
 }
