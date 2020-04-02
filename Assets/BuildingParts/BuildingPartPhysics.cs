@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class BuildingPartPhysics : MonoBehaviour
 {
-    private const int LEFT_BORDER_POSITION_X = 0;
-    private const int RIGHT_BORDER_POSITION_X = 22;
-    private const int DOWN_BORDER_POSITION_Y = 40;
-
+    private MoveValidator moveValidator;
     private static List<Coordinates> patternCoordinates;
 
     private bool isLeftControlPressed;
@@ -21,6 +17,8 @@ public class BuildingPartPhysics : MonoBehaviour
 
     void Start()
     {
+        moveValidator = FindObjectOfType<MoveValidator>();
+
         isLeftControlPressed = false;
         isRightControlPressed = false;
         isMovingDown = false;
@@ -120,7 +118,7 @@ public class BuildingPartPhysics : MonoBehaviour
         {
             transform.position += new Vector3(-1, 0, 0);
 
-            if (!IsMoveValid())
+            if (!moveValidator.IsMoveValid(transform))
             {
                 transform.position += new Vector3(1, 0, 0);
             }
@@ -132,7 +130,7 @@ public class BuildingPartPhysics : MonoBehaviour
         {
             transform.position += new Vector3(1, 0, 0);
 
-            if (!IsMoveValid())
+            if (!moveValidator.IsMoveValid(transform))
             {
                 transform.position += new Vector3(-1, 0, 0);
             }
@@ -144,7 +142,7 @@ public class BuildingPartPhysics : MonoBehaviour
         {
             transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, 1), 90);
 
-            if (!IsMoveValid())
+            if (!moveValidator.IsMoveValid(transform))
             {
                 transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, 1), -90);
             }
@@ -156,10 +154,10 @@ public class BuildingPartPhysics : MonoBehaviour
         {
             transform.position += new Vector3(0, -1, 0);
 
-            if (!IsMoveValid())
+            if (!moveValidator.IsMoveValid(transform))
             {
                 transform.position += new Vector3(0, 1, 0);
-                AddBuildingPartsToGrid();
+                buildingPartGridHolder.AddBuildingPart(transform);
 
                 if (IsLevelCompleted())
                 {
@@ -180,35 +178,6 @@ public class BuildingPartPhysics : MonoBehaviour
         foreach (var patternElementCoordinates in patternCoordinates)
         {
             if (buildingPartGridHolder.IsCellFree(patternElementCoordinates))
-            {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    private void AddBuildingPartsToGrid()
-    {
-        foreach (Transform cell in transform)
-        {
-            Coordinates coordinates = new Coordinates(Mathf.RoundToInt(cell.transform.position.x), Mathf.RoundToInt(cell.transform.position.y));
-            buildingPartGridHolder.AddCell(coordinates, cell);
-        }
-    }
-
-    private bool IsMoveValid()
-    {
-        foreach (Transform cell in transform)
-        {
-            Coordinates coordinates = new Coordinates(Mathf.RoundToInt(cell.transform.position.x), Mathf.RoundToInt(cell.transform.position.y));
-
-            if (coordinates.X < LEFT_BORDER_POSITION_X || coordinates.X >= RIGHT_BORDER_POSITION_X || coordinates.Y >= DOWN_BORDER_POSITION_Y || coordinates.Y < 0)
-            {
-                return false;
-            }
-
-            if (!buildingPartGridHolder.IsCellFree(coordinates))
             {
                 return false;
             }

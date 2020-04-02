@@ -15,8 +15,17 @@ public class BuildingPartGrid
         return !buildingPartGrid.ContainsKey(coordinates);
     }
 
-    public void AddCell(Coordinates coordinates, Transform cell)
+    private void AddCell(Coordinates coordinates, Transform cell)
     {
         buildingPartGrid.Add(coordinates, cell);
+    }
+
+    public void AddBuildingPart(Transform buildingPart)
+    {
+        foreach (Transform cell in buildingPart)
+        {
+            Coordinates coordinates = new Coordinates(Mathf.RoundToInt(cell.transform.position.x), Mathf.RoundToInt(cell.transform.position.y));
+            AddCell(coordinates, cell);
+        }
     }
 }

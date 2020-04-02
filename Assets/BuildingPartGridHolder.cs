@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BuildingPartGridHolder : MonoBehaviour
 {
@@ -16,8 +14,8 @@ public class BuildingPartGridHolder : MonoBehaviour
         return buildingPartGrid.IsCellFree(coordinates);
     }
 
-    public void AddCell(Coordinates coordinates, Transform cell)
+    public void AddBuildingPart(Transform buildingPart)
     {
-        buildingPartGrid.AddCell(coordinates, cell);
+        buildingPartGrid.AddBuildingPart(buildingPart);
     }
 }
