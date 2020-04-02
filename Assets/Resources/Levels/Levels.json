@@ -1,0 +1,26 @@
+[
+  {
+    "LevelID": 1,
+    "Name": "First Level",
+    "ExistingBlocks": [
+      {
+        "X": 1,
+        "Y": 2
+      },
+      {
+        "X": 4,
+        "Y": 5
+      }
+    ],
+    "EmptyBlocks": [
+      {
+        "X": 1,
+        "Y": 2
+      },
+      {
+        "X": 4,
+        "Y": 5
+      }
+    ]
+  }
+]
