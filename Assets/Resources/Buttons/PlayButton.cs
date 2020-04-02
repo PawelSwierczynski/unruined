@@ -4,18 +4,13 @@ using UnityEngine.SceneManagement;
 
 public class PlayButton : MonoBehaviour, IPointerClickHandler
 {
-    private string level;
-    public void OnMouseOver()
+    public void SetLevel(int level)
     {
-
-    }
-    public void SetLevel(string level)
-    {
-        this.level = level;
+        GameManager.Instance.SelectedLevel = level;
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(level == "Level 1")
+        if(GameManager.Instance.SelectedLevel == 1)
         {
             SceneManager.LoadScene("SampleScene");
         }
