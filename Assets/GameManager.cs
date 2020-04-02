@@ -3,7 +3,7 @@
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    public int selectedLevel { get; set; }
+    public int SelectedLevel { get; set; }
 
     void Awake()
     {
