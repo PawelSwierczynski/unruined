@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BuildingPartPhysics : MonoBehaviour
 {
     private MoveValidator moveValidator;
-    private static List<Coordinates> patternCoordinates;
 
     private bool isLeftControlPressed;
     private bool isRightControlPressed;
@@ -24,70 +22,6 @@ public class BuildingPartPhysics : MonoBehaviour
         isMovingDown = false;
         lastMoveDownUpdateTime = Time.time;
         buildingPartGridHolder = FindObjectOfType<BuildingPartGridHolder>();
-
-        patternCoordinates = new List<Coordinates>();
-        patternCoordinates.AddRange(new List<Coordinates>{
-           new Coordinates(8, 0),
-           new Coordinates(9, 0),
-           new Coordinates(10, 0),
-           new Coordinates(11, 0),
-           new Coordinates(12, 0),
-           new Coordinates(13, 0),
-           new Coordinates(8, 1),
-           new Coordinates(9, 1),
-           new Coordinates(10, 1),
-           new Coordinates(11, 1),
-           new Coordinates(12, 1),
-           new Coordinates(13, 1),
-           new Coordinates(8, 2),
-           new Coordinates(9, 2),
-           new Coordinates(10, 2),
-           new Coordinates(11, 2),
-           new Coordinates(12, 2),
-           new Coordinates(13, 2),
-           new Coordinates(8, 3),
-           new Coordinates(9, 3),
-           new Coordinates(10, 3),
-           new Coordinates(11, 3),
-           new Coordinates(12, 3),
-           new Coordinates(13, 3),
-           new Coordinates(8, 4),
-           new Coordinates(9, 4),
-           new Coordinates(10, 4),
-           new Coordinates(11, 4),
-           new Coordinates(12, 4),
-           new Coordinates(13, 4),
-           new Coordinates(6, 5),
-           new Coordinates(7, 5),
-           new Coordinates(8, 5),
-           new Coordinates(9, 5),
-           new Coordinates(10, 5),
-           new Coordinates(11, 5),
-           new Coordinates(12, 5),
-           new Coordinates(13, 5),
-           new Coordinates(14, 5),
-           new Coordinates(15, 5),
-           new Coordinates(7, 6),
-           new Coordinates(8, 6),
-           new Coordinates(9, 6),
-           new Coordinates(10, 6),
-           new Coordinates(11, 6),
-           new Coordinates(12, 6),
-           new Coordinates(13, 6),
-           new Coordinates(14, 6),
-           new Coordinates(8, 7),
-           new Coordinates(9, 7),
-           new Coordinates(10, 7),
-           new Coordinates(11, 7),
-           new Coordinates(12, 7),
-           new Coordinates(13, 7),
-           new Coordinates(9, 8),
-           new Coordinates(10, 8),
-           new Coordinates(11, 8),
-           new Coordinates(12, 8),
-           new Coordinates(10, 9),
-           new Coordinates(11, 9),
-        });
     }
 
     void Update()
@@ -159,11 +93,6 @@ public class BuildingPartPhysics : MonoBehaviour
                 transform.position += new Vector3(0, 1, 0);
                 buildingPartGridHolder.AddBuildingPart(transform);
 
-                if (IsLevelCompleted())
-                {
-                    Debug.Log("You've completed the level!");
-                }
-
                 enabled = false;
 
                 FindObjectOfType<SpawnBuildingParts>().SpawnNewBuildingPart();
@@ -173,7 +102,7 @@ public class BuildingPartPhysics : MonoBehaviour
         }
     }
 
-    private bool IsLevelCompleted()
+    /*private bool IsLevelCompleted()
     {
         foreach (var patternElementCoordinates in patternCoordinates)
         {
@@ -184,5 +113,5 @@ public class BuildingPartPhysics : MonoBehaviour
         }
 
         return true;
-    }
+    }*/
 }
