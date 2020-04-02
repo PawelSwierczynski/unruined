@@ -5,15 +5,19 @@ public class SpawnBuildingParts : MonoBehaviour
 {
     public GameObject[] buildingParts;
     public GameObject ruinCell;
-
     void Start()
     {
-        SpawnNewBuildingPart();
+        //SpawnNewBuildingPart();
+    }
+
+    public void SpawnNewBuildingPart(int blockID)
+    {        
+        Instantiate(buildingParts[blockID], transform.position, Quaternion.identity);
     }
 
     public void SpawnNewBuildingPart()
     {
-        Instantiate(buildingParts[Random.Range(0, buildingParts.Length)], transform.position, Quaternion.identity);
+        Instantiate(buildingParts[Random.Range(0, buildingParts.Length)], transform.position, Quaternion.identity);        
     }
 
     public void SpawnRuins()

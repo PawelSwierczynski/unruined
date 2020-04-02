@@ -94,8 +94,7 @@ public class BuildingPartPhysics : MonoBehaviour
                 buildingPartGridHolder.AddBuildingPart(transform);
 
                 enabled = false;
-
-                FindObjectOfType<SpawnBuildingParts>().SpawnNewBuildingPart();
+                //FindObjectOfType<SpawnBuildingParts>().SpawnNewBuildingPart();
             }
 
             isMovingDown = false;
