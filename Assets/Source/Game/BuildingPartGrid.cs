@@ -28,4 +28,10 @@ public class BuildingPartGrid
             AddCell(coordinates, cell);
         }
     }
+
+    public void AddRuinCell(GameObject ruinCell)
+    {
+        Coordinates coordinates = new Coordinates(Mathf.RoundToInt(ruinCell.transform.position.x), Mathf.RoundToInt(ruinCell.transform.position.y));
+        AddCell(coordinates, ruinCell.transform);
+    }
 }

@@ -18,4 +18,9 @@ public class BuildingPartGridHolder : MonoBehaviour
     {
         buildingPartGrid.AddBuildingPart(buildingPart);
     }
+
+    public void AddRuinCell(GameObject ruinCell)
+    {
+        buildingPartGrid.AddRuinCell(ruinCell);
+    }
 }

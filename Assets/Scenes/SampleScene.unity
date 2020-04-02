@@ -446,6 +446,7 @@ MonoBehaviour:
   - {fileID: 3890868169589226087, guid: e5741a6ec5209d04c80b578297cc11d7, type: 3}
   - {fileID: 8835649360924636695, guid: 42fbaa86a3b1da04fa8cdd4ffda38f18, type: 3}
   - {fileID: 3970558576694078438, guid: 972103826d7da414fa38536fe9e42511, type: 3}
+  ruinCell: {fileID: 643104775331819186, guid: f47cd999dfff2f74a8e195c795577003, type: 3}
 --- !u!4 &1031789634
 Transform:
   m_ObjectHideFlags: 0

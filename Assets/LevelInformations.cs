@@ -29,5 +29,7 @@ public class LevelInformations : MonoBehaviour
         LevelName = loadedLevel.Name;
         PatternCells = loadedLevel.EmptyBlocks;
         RuinCells = loadedLevel.ExistingBlocks;
+
+        FindObjectOfType<SpawnBuildingParts>().SpawnRuins();
     }
 }
