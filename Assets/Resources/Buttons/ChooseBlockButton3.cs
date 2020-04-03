@@ -12,19 +12,21 @@ public class ChooseBlockButton3 : MonoBehaviour, IPointerClickHandler
     void Start()
     {
         random = Random.Range(0, buildingParts.Length);
-        this.gameObject.GetComponent<Text>().text = buildingParts[random].name;
-        //this.gameObject.GetComponent<SpriteRenderer>().sprite = blockSprites[random];
+        this.gameObject.GetComponent<Image>().sprite = blockSprites[random];
     }
     public void updateButton3()
     {
         random = Random.Range(0, buildingParts.Length);
-        this.gameObject.GetComponent<Text>().text = buildingParts[random].name;
+        this.gameObject.GetComponent<Image>().sprite = blockSprites[random];
     }
     public void OnPointerClick(PointerEventData eventData)
-    {
+    {        
         FindObjectOfType<SpawnBuildingParts>().SpawnNewBuildingPart(random);
         FindObjectOfType<ChooseBlockButton>().updateButton();
         FindObjectOfType<ChooseBlockButton2>().updateButton2();
         updateButton3();
+        enabled = false;
+        FindObjectOfType<ChooseBlockButton2>().enabled = false;
+        FindObjectOfType<ChooseBlockButton>().enabled = false;
     }
 }

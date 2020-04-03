@@ -94,7 +94,9 @@ public class BuildingPartPhysics : MonoBehaviour
                 buildingPartGridHolder.AddBuildingPart(transform);
 
                 enabled = false;
-                //FindObjectOfType<SpawnBuildingParts>().SpawnNewBuildingPart();
+                FindObjectOfType<ChooseBlockButton>().enabled = true;
+                FindObjectOfType<ChooseBlockButton2>().enabled = true;
+                FindObjectOfType<ChooseBlockButton3>().enabled = true;
             }
 
             isMovingDown = false;
