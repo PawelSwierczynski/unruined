@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8447380591226114827}
   - component: {fileID: 5813812231779622133}
   m_Layer: 0
-  m_Name: RuinSprite
+  m_Name: RuinCell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e28d4aa5a1eed174985e952376653aac, type: 3}
-  m_Color: {r: 0.3679245, g: 0.35230508, b: 0.35230508, a: 1}
+  m_Color: {r: 0.5754717, g: 0.5184674, b: 0.5184674, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

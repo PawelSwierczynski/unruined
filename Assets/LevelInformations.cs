@@ -33,4 +33,26 @@ public class LevelInformations : MonoBehaviour
         FindObjectOfType<LoadBackgroundToFill>().LoadBackground(LevelIdentifier);
         FindObjectOfType<SpawnBuildingParts>().SpawnRuins();
     }
+
+    public void ChangeCellsColors(GameObject buildingPart)
+    {
+        int counter = 0;
+        var renderers = buildingPart.GetComponentsInChildren<SpriteRenderer>();
+
+        foreach (Transform cell in buildingPart.transform)
+        {
+            Coordinates coordinates = new Coordinates(Mathf.RoundToInt(cell.transform.position.x), Mathf.RoundToInt(cell.transform.position.y));
+
+            if (PatternCells.Contains(coordinates))
+            {
+                renderers[counter].color = new Color32(147, 132, 132, 255);
+            }
+            else
+            {
+                renderers[counter].color = Color.red;
+            }
+
+            counter++;
+        }
+    } 
 }

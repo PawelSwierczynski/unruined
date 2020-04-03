@@ -92,6 +92,7 @@ public class BuildingPartPhysics : MonoBehaviour
             {
                 transform.position += new Vector3(0, 1, 0);
                 buildingPartGridHolder.AddBuildingPart(transform);
+                FindObjectOfType<LevelInformations>().ChangeCellsColors(gameObject);
 
                 enabled = false;
                 FindObjectOfType<ChooseBlockButton>().enabled = true;
