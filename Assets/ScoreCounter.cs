@@ -35,6 +35,8 @@ public class ScoreCounter : MonoBehaviour
 
         CurrentScore = (int)((double)currentScore / levelInformations.PatternCells.Count * 100.0);
 
+        FindObjectOfType<LevelCompletion>().SetCompletion(CurrentScore);
+
         if (HighScore < CurrentScore)
         {
             HighScore = CurrentScore;
