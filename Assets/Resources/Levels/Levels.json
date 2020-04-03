@@ -1226,9 +1226,8 @@
         "Y": 9
       }
     ]
-  }
-  
-    {
+  },
+  {
     "LevelID": 3,
     "Name": "Third Level",
     "ExistingBlocks": [
