@@ -98,6 +98,8 @@ public class BuildingPartPhysics : MonoBehaviour
                 FindObjectOfType<ChooseBlockButton>().enabled = true;
                 FindObjectOfType<ChooseBlockButton2>().enabled = true;
                 FindObjectOfType<ChooseBlockButton3>().enabled = true;
+                FindObjectOfType<ScoreCounter>().CalculateScore();
+                bool isLevelComplete = FindObjectOfType<ScoreCounter>().IsGameWon();
             }
 
             isMovingDown = false;

@@ -34,4 +34,9 @@ public class BuildingPartGrid
         Coordinates coordinates = new Coordinates(Mathf.RoundToInt(ruinCell.transform.position.x), Mathf.RoundToInt(ruinCell.transform.position.y));
         AddCell(coordinates, ruinCell.transform);
     }
+
+    public int RetrieveNumberOfCells()
+    {
+        return buildingPartGrid.Count;
+    }
 }

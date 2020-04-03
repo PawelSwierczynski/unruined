@@ -23,4 +23,9 @@ public class BuildingPartGridHolder : MonoBehaviour
     {
         buildingPartGrid.AddRuinCell(ruinCell);
     }
+
+    public BuildingPartGrid RetrieveBuildingPartGrid()
+    {
+        return buildingPartGrid;
+    }
 }
