@@ -2,10 +2,10 @@
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class StartButton : MonoBehaviour, IPointerClickHandler
+public class BackButton : MonoBehaviour, IPointerClickHandler
 {
     public void OnPointerClick(PointerEventData eventData)
     {
-        SceneManager.LoadScene("LevelSelectScene");
+        SceneManager.LoadScene("LevelSelectScene");   
     }
 }
