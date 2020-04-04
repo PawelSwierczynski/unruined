@@ -7,7 +7,7 @@ public class SpawnBuildingParts : MonoBehaviour
     public GameObject ruinCell;
     void Start()
     {
-        //SpawnNewBuildingPart();
+        FindObjectOfType<SoundManager>().PlayGameMusic();
     }
 
     public void SpawnNewBuildingPart(int blockID)

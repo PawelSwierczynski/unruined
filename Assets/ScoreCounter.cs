@@ -15,8 +15,6 @@ public class ScoreCounter : MonoBehaviour
         CurrentScore = 0;
         HighScore = GameManager.Instance.SaveGameSystem.RetrieveHighscore(GameManager.Instance.SelectedLevel);
 
-        Debug.Log(HighScore);
-
         buildingPartGrid = FindObjectOfType<BuildingPartGridHolder>().RetrieveBuildingPartGrid();
         levelInformations = FindObjectOfType<LevelInformations>();
     }
