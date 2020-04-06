@@ -20,7 +20,7 @@ public class LevelInformations : MonoBehaviour
         RightBorderPositionY = 22;
         DownBorderPositionY = 40;
 
-        LevelsDictionary levelsDictionary = new LevelsDictionary(File.ReadAllText("Assets/Resources/Levels/Levels.json"));
+        LevelsDictionary levelsDictionary = new LevelsDictionary(File.ReadAllText(Application.streamingAssetsPath + "/Levels.json"));
         LevelElement loadedLevel = (from level in levelsDictionary.Levels
                                     where level.LevelID == GameManager.Instance.SelectedLevel
                                     select level).FirstOrDefault();

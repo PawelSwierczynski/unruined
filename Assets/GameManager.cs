@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using UnityEngine;
 using GameSaving;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
 
-            SaveGameSystem = new SaveGameSystem(File.ReadAllText("Assets/Resources/Saves/GameSave.json"));
+            SaveGameSystem = new SaveGameSystem(File.ReadAllText(Application.streamingAssetsPath + "/GameSave.json"));
         }
         else
         {
@@ -25,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     public void SaveGame()
     {
-        File.WriteAllText("Assets/Resources/Saves/GameSave.json", SaveGameSystem.RetrieveSaveGame());
+        File.WriteAllText(Application.streamingAssetsPath + "/GameSave.json", SaveGameSystem.RetrieveSaveGame());
     }
 
     public void SaveSettings()
