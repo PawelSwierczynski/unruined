@@ -1152,6 +1152,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 595a39f46b9340c429b73a510504d8cb, type: 3}
   - {fileID: 8300000, guid: 36617d901358ce940aaebe980fde04fe, type: 3}
   - {fileID: 8300000, guid: 688c3b41628923740a25ec454d34c287, type: 3}
+  SoundVolume: 0
 --- !u!4 &1426263960
 Transform:
   m_ObjectHideFlags: 0
@@ -1427,7 +1428,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -20, y: 238}
+  m_AnchoredPosition: {x: -46.100006, y: 218.35004}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1673879643
@@ -1449,11 +1450,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_Font: {fileID: 12800000, guid: 39ba15bae3936204d86ffd2af85a8f1e, type: 3}
+    m_FontSize: 23
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 4
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
