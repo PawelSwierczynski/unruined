@@ -581,7 +581,6 @@ GameObject:
   m_Component:
   - component: {fileID: 793982188}
   - component: {fileID: 793982189}
-  - component: {fileID: 793982190}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -661,29 +660,17 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1426263959}
+      - m_Target: {fileID: 1426263961}
         m_MethodName: SetVolume
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 1
+          m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &793982190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 793982187}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bb1fbbce54ff784ab1fdef88c903088, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &854026065
 GameObject:
   m_ObjectHideFlags: 0
@@ -903,6 +890,7 @@ GameObject:
   - component: {fileID: 1426263960}
   - component: {fileID: 1426263959}
   - component: {fileID: 1426263958}
+  - component: {fileID: 1426263961}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -1040,6 +1028,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1426263961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426263957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d224c348f6e5131499184434b8b4efa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volume: 1
 --- !u!1 &1559514459
 GameObject:
   m_ObjectHideFlags: 0
