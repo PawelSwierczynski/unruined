@@ -581,6 +581,7 @@ GameObject:
   m_Component:
   - component: {fileID: 793982188}
   - component: {fileID: 793982189}
+  - component: {fileID: 793982190}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -660,8 +661,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1426263958}
-        m_MethodName: set_volume
+      - m_Target: {fileID: 1426263959}
+        m_MethodName: SetVolume
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -671,6 +672,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &793982190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793982187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bb1fbbce54ff784ab1fdef88c903088, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &854026065
 GameObject:
   m_ObjectHideFlags: 0

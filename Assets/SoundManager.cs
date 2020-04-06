@@ -14,6 +14,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip[] GameMusic;
     private MusicType currentMusicType;
     private int currentMusicIndex;
+    private float audioVolume = 1f;
 
     void Awake()
     {
@@ -32,7 +33,7 @@ public class SoundManager : MonoBehaviour
     }
 
     void Update()
-    {
+    {        
         if (audioSource.isPlaying == false)
         {
             if (currentMusicType == MusicType.MenuMusic && currentMusicIndex == MenuMusic.Length - 1)
@@ -48,9 +49,10 @@ public class SoundManager : MonoBehaviour
                 currentMusicIndex++;
             }
 
-            audioSource.clip = (currentMusicType == MusicType.MenuMusic) ? MenuMusic[currentMusicIndex] : GameMusic[currentMusicIndex];
+            audioSource.clip = (currentMusicType == MusicType.MenuMusic) ? MenuMusic[currentMusicIndex] : GameMusic[currentMusicIndex];            
             audioSource.Play();
         }
+        audioSource.volume = audioVolume;
     }
 
     public void PlayMenuMusic()
@@ -73,5 +75,10 @@ public class SoundManager : MonoBehaviour
 
         currentMusicType = MusicType.GameMusic;
         currentMusicIndex = Random.Range(0, GameMusic.Length - 1);
+    }
+
+    public void SetVolume(float volume)
+    {
+        audioVolume = volume;
     }
 }
