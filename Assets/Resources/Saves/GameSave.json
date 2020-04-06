@@ -3,7 +3,7 @@
   "LevelScores": [
     {
       "Identifier": 1,
-      "Score": 0
+      "Score": 94
     },
     {
       "Identifier": 2,
@@ -13,25 +13,25 @@
       "Identifier": 3,
       "Score": 0
     },
-	{
+    {
       "Identifier": 4,
       "Score": 0
     },
-	{
+    {
       "Identifier": 5,
       "Score": 0
     },
-	{
+    {
       "Identifier": 6,
       "Score": 0
     },
-	{
+    {
       "Identifier": 7,
       "Score": 0
     },
-	{
+    {
       "Identifier": 8,
       "Score": 0
-    },
+    }
   ]
 }
