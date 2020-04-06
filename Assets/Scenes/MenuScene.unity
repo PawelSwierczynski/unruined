@@ -953,6 +953,7 @@ GameObject:
   - component: {fileID: 1645832663}
   - component: {fileID: 1645832662}
   - component: {fileID: 1645832661}
+  - component: {fileID: 1645832664}
   m_Layer: 5
   m_Name: Settings Button
   m_TagString: Untagged
@@ -1059,6 +1060,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1645832659}
   m_CullTransparentMesh: 0
+--- !u!114 &1645832664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645832659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 544961ace5da9504996e00cb2d47986d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1866573764
 GameObject:
   m_ObjectHideFlags: 0
