@@ -9,9 +9,10 @@ namespace LevelLoader
     {
         public List<LevelElement> Levels;
 
-        public LevelsDictionary(string json)
+        public LevelsDictionary(string filepath)
         {
-            Levels = JsonUtility.FromJson<List<LevelElement>>(json);
+            LevelsDictionary levelsDictionary = JsonUtility.FromJson<LevelsDictionary>(filepath);
+            Levels = levelsDictionary.Levels;
         }
 
         public LevelsDictionary()
@@ -22,6 +23,8 @@ namespace LevelLoader
                     new Coordinates(4,5)
                 };
             Levels = new List<LevelElement> { new LevelElement(1, "First Level", tupleList, tupleList) };
+
+            Debug.Log(JsonUtility.ToJson(this, true));
         }
     }
 }
