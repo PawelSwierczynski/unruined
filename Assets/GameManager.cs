@@ -27,4 +27,13 @@ public class GameManager : MonoBehaviour
     {
         File.WriteAllText("Assets/Resources/Saves/GameSave.json", SaveGameSystem.RetrieveSaveGame());
     }
+
+    public void SaveSettings()
+    {
+        SaveGameSystem.SetSoundVolume(SoundManager.Instance.SoundVolume);
+
+        Debug.Log(SoundManager.Instance.SoundVolume);
+
+        SaveGame();
+    }
 }

@@ -392,6 +392,7 @@ GameObject:
   - component: {fileID: 378345394}
   - component: {fileID: 378345393}
   - component: {fileID: 378345392}
+  - component: {fileID: 378345391}
   m_Layer: 5
   m_Name: Accept Button
   m_TagString: Untagged
@@ -418,6 +419,18 @@ RectTransform:
   m_AnchoredPosition: {x: 83.9, y: -227}
   m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &378345391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378345389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dee380eb3740844d9ac0149124cbbfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &378345392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -581,9 +594,10 @@ GameObject:
   m_Component:
   - component: {fileID: 793982188}
   - component: {fileID: 793982189}
+  - component: {fileID: 793982190}
   m_Layer: 5
   m_Name: Slider
-  m_TagString: Untagged
+  m_TagString: VolumeSlider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -659,18 +673,19 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1426263961}
-        m_MethodName: SetVolume
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &793982190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793982187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c0d841071e959458b0796c7254c18f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &854026065
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,7 +905,6 @@ GameObject:
   - component: {fileID: 1426263960}
   - component: {fileID: 1426263959}
   - component: {fileID: 1426263958}
-  - component: {fileID: 1426263961}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -1014,6 +1028,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 595a39f46b9340c429b73a510504d8cb, type: 3}
   - {fileID: 8300000, guid: 36617d901358ce940aaebe980fde04fe, type: 3}
   - {fileID: 8300000, guid: 688c3b41628923740a25ec454d34c287, type: 3}
+  SoundVolume: 1
 --- !u!4 &1426263960
 Transform:
   m_ObjectHideFlags: 0
@@ -1028,19 +1043,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1426263961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1426263957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d224c348f6e5131499184434b8b4efa6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volume: 1
 --- !u!1 &1559514459
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
@@ -12,9 +13,10 @@ public class SoundManager : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip[] MenuMusic;
     public AudioClip[] GameMusic;
+    public float SoundVolume;
     private MusicType currentMusicType;
     private int currentMusicIndex;
-    private float audioVolume = 1f;
+    public bool IsVolumeSliderReady { get; set; }
 
     void Awake()
     {
@@ -25,6 +27,9 @@ public class SoundManager : MonoBehaviour
 
             currentMusicType = MusicType.MenuMusic;
             currentMusicIndex = Random.Range(0, MenuMusic.Length - 1);
+            SoundVolume = GameManager.Instance.SaveGameSystem.GetSoundVolume();
+            audioSource.volume = SoundVolume;
+            IsVolumeSliderReady = false;
         }
         else
         {
@@ -52,7 +57,15 @@ public class SoundManager : MonoBehaviour
             audioSource.clip = (currentMusicType == MusicType.MenuMusic) ? MenuMusic[currentMusicIndex] : GameMusic[currentMusicIndex];            
             audioSource.Play();
         }
-        audioSource.volume = audioVolume;
+
+        Slider volumeSlider = GameObject.FindGameObjectWithTag("VolumeSlider")?.GetComponent<Slider>();
+
+        if (volumeSlider != null && IsVolumeSliderReady)
+        {
+            SoundVolume = volumeSlider.value;
+
+            audioSource.volume = volumeSlider.value;
+        }
     }
 
     public void PlayMenuMusic()
@@ -75,10 +88,5 @@ public class SoundManager : MonoBehaviour
 
         currentMusicType = MusicType.GameMusic;
         currentMusicIndex = Random.Range(0, GameMusic.Length - 1);
-    }
-
-    public void SetVolume(float volume)
-    {
-        audioVolume = volume;
     }
 }
