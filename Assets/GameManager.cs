@@ -22,4 +22,9 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void SaveGame()
+    {
+        File.WriteAllText("Assets/Resources/Saves/GameSave.json", SaveGameSystem.RetrieveSaveGame());
+    }
 }

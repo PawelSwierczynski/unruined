@@ -1,14 +1,15 @@
 {
+  "SoundVolume": 100.0,
   "LevelScores": [
     {
       "Identifier": 1,
-      "Score": 0
+      "Score": 15
     },
     {
       "Identifier": 2,
       "Score": 0
     },
-	{
+    {
       "Identifier": 3,
       "Score": 0
     }

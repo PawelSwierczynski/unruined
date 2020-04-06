@@ -6,6 +6,7 @@ public class ScoreCounter : MonoBehaviour
 {
     public int CurrentScore { get; set; }
     public int HighScore { get; set; }
+    public bool IsHighScorePassed { get; set; }
 
     private BuildingPartGrid buildingPartGrid;
     private LevelInformations levelInformations;
@@ -14,6 +15,7 @@ public class ScoreCounter : MonoBehaviour
     {
         CurrentScore = 0;
         HighScore = GameManager.Instance.SaveGameSystem.RetrieveHighscore(GameManager.Instance.SelectedLevel);
+        IsHighScorePassed = false;
 
         buildingPartGrid = FindObjectOfType<BuildingPartGridHolder>().RetrieveBuildingPartGrid();
         levelInformations = FindObjectOfType<LevelInformations>();
@@ -39,6 +41,7 @@ public class ScoreCounter : MonoBehaviour
 
         if (HighScore < CurrentScore)
         {
+            IsHighScorePassed = true;
             HighScore = CurrentScore;
         }
     }
